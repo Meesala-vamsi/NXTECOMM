@@ -3,10 +3,12 @@ import "./productList.css";
 import { useDispatch } from "react-redux";
 import { productDetails } from "../../store/slices/productSlice";
 import cookies from "js-cookie";
+import { useLocation } from "react-router-dom";
 
 
 const ProductList = ({ products, handleProductClick, onClickAddToCart }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const token = cookies.get("token");
   let categoryType = "";
   if (products?.category === "men's clothing") {
@@ -52,9 +54,11 @@ const ProductList = ({ products, handleProductClick, onClickAddToCart }) => {
           <p className="product-price">${products?.price}</p>
         </div>
       </div>
-      <button className="add-cart-btn" onClick={(e) => addToCart(e, products)}>
+      {
+        location.pathname.includes("products")?<button className="add-cart-btn" onClick={(e) => addToCart(e, products)}>
         Add to cart
-      </button>
+      </button>:""
+      }
     </li>
   );
 };

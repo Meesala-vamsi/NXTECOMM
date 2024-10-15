@@ -61,25 +61,7 @@ const Home = () => {
       dispatch(getAllProducts());
     },[dispatch]);
 
-    const onClickAddToCart = (cartItem) => {
-      setCartData((prevCartData) => {
-        const isItemInCart = prevCartData.find(
-          (item) => item.id === cartItem.id
-        );
-
-        if (isItemInCart) {
-          return prevCartData.map((item) =>
-            item.id === cartItem.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          );
-        } else {
-          return [...prevCartData, { ...cartItem, quantity: 1 }];
-        }
-      });
-
-      toast.success("Item added to cart..")
-    };
+   const onClickAddToCart=()=>{}
 
     const handleProductClick=()=>{}
 
@@ -174,7 +156,7 @@ const Home = () => {
       <div className='home-products'>
         <h1 style={{ fontSize: "25px" }}>Featured products</h1>
         <ul className="product-list-container">
-          {productsList?.slice(10).map((eachProduct, index) => (
+          {productsList?.slice(0,15).map((eachProduct, index) => (
             <ProductList
               key={index}
               products={eachProduct}
