@@ -59,6 +59,10 @@
   .product-list-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .products-container{
+    padding: 5px 10px;
+  }
 }
 
 @media screen and (max-width:768px){

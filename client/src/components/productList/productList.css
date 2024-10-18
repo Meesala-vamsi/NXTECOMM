@@ -50,3 +50,13 @@
   border-radius: 20px;
   font-size: 11px;
 }
+
+@media screen and (max-width:768px){
+  .card-bottom-section h1{
+    font-size: 15px;
+  }
+
+  .product-list-items{
+    padding:5px 15px;
+  }
+}
